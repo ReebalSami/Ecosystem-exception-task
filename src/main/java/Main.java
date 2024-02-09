@@ -4,6 +4,7 @@ public class Main {
         StudentService studentService = new StudentService();
 
         Student newStudent = Student.builder()
+
                 .name("Florian")
                 .subject("Geschichte")
                 .build();
@@ -11,5 +12,16 @@ public class Main {
         Student savedStudent = studentService.addNewStudent(newStudent);
 
         System.out.println("Student saved: " + savedStudent);
+
+
+        String studentIdToFind = savedStudent.id();
+
+        Student foundStudent = studentService.findStudentById(studentIdToFind);
+
+        if (foundStudent != null) {
+            System.out.println("Found student: " + foundStudent);
+        }
+
+
     }
 }
